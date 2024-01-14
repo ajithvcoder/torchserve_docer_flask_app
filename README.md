@@ -26,3 +26,6 @@ This repo tells how to use two different docker containers where flask runs in o
     sudo usermod -aG docker ubuntu
 
     newgrp docker
+
+### Note
+- Dont forget to terminate the EC2 instance
