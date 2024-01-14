@@ -1,0 +1,17 @@
+version: '3'
+services:
+  spaceshipflask-app:
+    image: spaceship-app
+    build:
+      context: ./flask_files
+    ports:
+      - "8085:8085"  # Map the Flask app's port to the host
+    depends_on:
+      - torchserve-mar  # Ensure that the Flask app is started before Torch Serve
+  torchserve-mar:
+    image: docker_torchserve
+    build:
+      context: ./torch_files
+    ports:
+      - "8080:8080"  # Map Torch Serve's port to the host
+      - "8081:8081"
